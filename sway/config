@@ -20,6 +20,8 @@ set $menu fuzzel
 
 include /etc/sway/config-vars.d/*
 
+include ~/.config/sway/monitors-setup
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
