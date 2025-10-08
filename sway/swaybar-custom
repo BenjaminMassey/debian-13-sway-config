@@ -1,0 +1,39 @@
+#!/bin/sh
+
+DISP_MAX=$(brightnessctl m)
+if [ "$DISP_MAX" = "255" ]; then
+  DISP_LABEL="<span foreground='#FFFF00'>DISP</span>"
+  DISP_RAW=$(brightnessctl g)
+  DISP=$(awk "BEGIN { pc=100*${DISP_RAW}/255; i=int(pc); print (pc-i<0.5)?i:i+1}")
+  DISP_TEXT="${DISP_LABEL} ${DISP}% |"
+else
+  DISP_TEXT=""
+fi
+
+if [ -d "/sys/class/power_supply/BAT0" ]; then
+  BATT_LABEL="<span foreground='#00FF00'>BATT</span>"
+  BATT=$(cat /sys/class/power_supply/BAT0/capacity)
+  CHARGE_RAW=$(cat /sys/class/power_supply/BAT0/status)
+  CHARGE_RAW=$(echo "$CHARGE_RAW" | tr -d '[:space:]')
+  if [ "$CHARGE_RAW" = "Charging" ]; then
+    CHARGE_CHAR="C"
+  elif [ "$CHARGE_RAW" = "Discharging" ]; then
+    CHARGE_CHAR="D"
+  elif [ "$CHARGE_RAW" = "Full" ]; then
+    CHARGE_CHAR="F"
+  else
+    CHARGE_CHAR="E"
+  fi
+  CHARGE="<span foreground='#C576F6'>${CHARGE_CHAR}</span>"
+  BATT_TEXT="${BATT_LABEL} ${BATT}% [${CHARGE}] |"
+else
+  BATT_TEXT=""
+fi
+
+DAY=$(date +'%a')
+DAY_TXT="<span foreground='#67B7D1'>${DAY}</span>"
+
+DATE=$(date +'%Y-%m-%d')
+TIME=$(date +'%H:%M:%S')
+
+echo "${DISP_TEXT} ${BATT_TEXT} ${DAY_TXT} ${DATE} | ${TIME}"

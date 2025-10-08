@@ -1,0 +1,9 @@
+*
+!setup.sh
+!.gitignore
+!sway/
+!sway/*
+!alacritty/
+!alacritty/*
+!nvim/
+!nvim/lazyvim.json

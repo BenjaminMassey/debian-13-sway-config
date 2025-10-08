@@ -1,0 +1,9 @@
+#!/bin/sh
+sleep 1
+firefox-esr &
+sleep 2
+swaymsg "move window to workspace number 10"
+sleep 1
+swaymsg "workspace number 1"
+sleep 1
+swaymsg kill
