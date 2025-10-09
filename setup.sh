@@ -18,6 +18,8 @@ apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl 
 git config --global user.email "benjamin.w.massey@gmail.com"
 git config --global user.name "Benjamin Massey"
 
+echo "color_prompt=yes" | cat - ~/.bashrc >temp && mv temp ~/.bashrc
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup component add rust-analyzer
 cargo install cargo-deb
