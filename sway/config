@@ -244,4 +244,6 @@ exec ~/.config/sway/firefox-workaround
 #https://www.reddit.com/r/swaywm/comments/bb4dam/comment/f189tsn/
 bindsym Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
 
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 include /etc/sway/config.d/*

@@ -13,7 +13,7 @@ else
   exit 1
 fi
 
-apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl neowofetch
+apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl neowofetch obs-studio xdg-desktop-portal-wlr
 
 git config --global user.email "benjamin.w.massey@gmail.com"
 git config --global user.name "Benjamin Massey"
