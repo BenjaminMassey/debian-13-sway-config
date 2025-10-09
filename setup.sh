@@ -13,7 +13,7 @@ else
   exit 1
 fi
 
-apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl git
+apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl neowofetch
 
 git config --global user.email "benjamin.w.massey@gmail.com"
 git config --global user.name "Benjamin Massey"
@@ -25,6 +25,7 @@ cargo install cargo-deb
 curl -LO --output-dir ~/Downloads https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 rm -rf /opt/nvim-linux-x86_64
 tar -C /opt -xzf ~/Downloads/nvim-linux-x86_64.tar.gz
+echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >>~/.bashrc
 
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Arimo.zip &&
   cd ~/.local/share/fonts &&
@@ -35,4 +36,4 @@ wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/do
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
-echo "Done! Make sure to run $(nvim) to install and configure."
+echo "Done! Reboot and choose sway."

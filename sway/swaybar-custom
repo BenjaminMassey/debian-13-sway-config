@@ -30,10 +30,14 @@ else
   BATT_TEXT=""
 fi
 
+VOL_NUM=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -n 1)
+pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes && VOL_MUTE=" <span foreground='#FF0000'>[M]</span>" || VOL_MUTE=""
+VOL_TEXT="<span foreground='#008080'>VOL</span> ${VOL_NUM}${VOL_MUTE}"
+
 DAY=$(date +'%a')
 DAY_TXT="<span foreground='#67B7D1'>${DAY}</span>"
 
 DATE=$(date +'%Y-%m-%d')
 TIME=$(date +'%H:%M:%S')
 
-echo "${DISP_TEXT} ${BATT_TEXT} ${DAY_TXT} ${DATE} | ${TIME}"
+echo "${DISP_TEXT} ${BATT_TEXT} ${VOL_TEXT} | ${DAY_TXT} ${DATE} | ${TIME}"
