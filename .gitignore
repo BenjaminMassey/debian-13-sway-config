@@ -13,3 +13,5 @@ sway/monitors-setup
 !nvim/lua/
 !nvim/lua/config/
 !nvim/lua/config/options.lua
+!gtk-3.0/
+!gtk-3.0/settings.ini
