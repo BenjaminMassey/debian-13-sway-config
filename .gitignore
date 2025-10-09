@@ -10,3 +10,6 @@ sway/monitors-setup
 !alacritty/*
 !nvim/
 !nvim/lazyvim.json
+!nvim/lua/
+!nvim/lua/config/
+!nvim/lua/config/options.lua
