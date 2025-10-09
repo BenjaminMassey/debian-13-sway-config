@@ -5,6 +5,7 @@ nvim/README.md
 !.gitignore
 !sway/
 !sway/*
+sway/monitors-setup
 !alacritty/
 !alacritty/*
 !nvim/
