@@ -26,7 +26,7 @@ cargo install cargo-deb
 
 curl -LO --output-dir ~/Downloads https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 rm -rf /opt/nvim-linux-x86_64
-tar -C /opt -xzf ~/Downloads/nvim-linux-x86_64.tar.gz
+tar -xzf ~/Downloads/nvim-linux-x86_64.tar.gz -C /opt
 echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >>~/.bashrc
 
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Arimo.zip &&
@@ -35,7 +35,8 @@ wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/do
   rm Arimo.zip &&
   fc-cache -fv
 
-git clone https://github.com/LazyVim/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+git clone https://www.github.com/LazyVim/starter ~/lazyvim-temp
+cp -rn ~/lazyvim-temp/* ~/.config/nvim/
+rm -rf ~/lazyvim-temp
 
 echo "Done! Reboot and choose sway."
