@@ -17,6 +17,8 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 set $menu fuzzel
+# Your preferred browser application
+set $browser chromium
 
 include /etc/sway/config-vars.d/*
 
@@ -75,6 +77,9 @@ include ~/.config/sway/monitors-setup
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Start your browser
+    bindsym $mod+o exec $browser
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -238,8 +243,6 @@ bar {
 exec copyq &
 bindsym $mod+Shift+v exec 'copyq menu'
 for_window [app_id="copyq"] floating enable
-
-exec ~/.config/sway/firefox-workaround
 
 #https://www.reddit.com/r/swaywm/comments/bb4dam/comment/f189tsn/
 bindsym Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
