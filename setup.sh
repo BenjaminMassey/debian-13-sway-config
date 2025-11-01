@@ -29,11 +29,10 @@ rm -rf /opt/nvim-linux-x86_64
 tar -xzf ~/Downloads/nvim-linux-x86_64.tar.gz -C /opt
 echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >>~/.bashrc
 
-wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Arimo.zip &&
-  cd ~/.local/share/fonts &&
-  unzip Arimo.zip &&
-  rm Arimo.zip &&
-  fc-cache -fv
+wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Arimo.zip
+unzip ~/.local/share/fonts/Arimo.zip -d ~/.local/share/fonts/Arimo.zip
+rm ~/.local/share/fonts/Arimo.zip
+fc-cache -fv
 
 git clone https://www.github.com/LazyVim/starter ~/lazyvim-temp
 cp -rn ~/lazyvim-temp/* ~/.config/nvim/
