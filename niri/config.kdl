@@ -270,7 +270,10 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
+// Note: commented out, since waybar seems to be
+// starting on startup without this, and so this
+// makes two stacked instances occur on startup.
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -625,3 +628,9 @@ binds {
 overview {
   backdrop-color "#000011"
 }
+
+// Known issue of white window with this installed
+// but needed for usage of KDE Plasma which I'd
+// like to keep around.
+// https://github.com/YaLTeR/niri/issues/2367
+spawn-sh-at-startup "sleep 1 && killall xwaylandvideobridge"

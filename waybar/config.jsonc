@@ -10,10 +10,12 @@
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad",
-        "custom/media"
+        "custom/media",
+        "niri/workspaces"
     ],
     "modules-center": [
-        "sway/window"
+        "sway/window",
+        "niri/window"
     ],
     "modules-right": [
         "pulseaudio",
