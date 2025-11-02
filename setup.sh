@@ -13,7 +13,7 @@ else
   exit 1
 fi
 
-apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl neowofetch obs-studio xdg-desktop-portal-wlr lxappearance wdisplays chromium
+apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl neowofetch obs-studio xdg-desktop-portal-wlr lxappearance wdisplays chromium waybar
 
 git config --global user.email "benjamin.w.massey@gmail.com"
 git config --global user.name "Benjamin Massey"
@@ -38,4 +38,11 @@ git clone https://www.github.com/LazyVim/starter ~/lazyvim-temp
 cp -rn ~/lazyvim-temp/* ~/.config/nvim/
 rm -rf ~/lazyvim-temp
 
-echo "Done! Reboot and choose sway."
+mkdir ~/Development/
+git clone https://github.com/YaLTeR/niri.git ~/Development/niri
+cd ~/Development/niri
+cargo install cargo-deb
+cargo deb
+dpkg -i ~/Development/niri/target/debian/*.deb
+
+echo "Done! Reboot and choose sway or niri."
