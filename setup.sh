@@ -13,7 +13,7 @@ else
   exit 1
 fi
 
-apt install sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl neowofetch obs-studio xdg-desktop-portal-wlr lxappearance wdisplays chromium waybar
+apt install -y sway alacritty fuzzel copyq brightnessctl tree-sitter-cli wget curl neowofetch obs-studio xdg-desktop-portal-wlr lxappearance wdisplays chromium waybar pkg-config
 
 git config --global user.email "benjamin.w.massey@gmail.com"
 git config --global user.name "Benjamin Massey"
@@ -30,7 +30,8 @@ tar -xzf ~/Downloads/nvim-linux-x86_64.tar.gz -C /opt
 echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >>~/.bashrc
 
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Arimo.zip
-unzip ~/.local/share/fonts/Arimo.zip -d ~/.local/share/fonts/Arimo.zip
+cd ~/.local/share/fonts/
+unzip *
 rm ~/.local/share/fonts/Arimo.zip
 fc-cache -fv
 
@@ -41,8 +42,16 @@ rm -rf ~/lazyvim-temp
 mkdir ~/Development/
 git clone https://github.com/YaLTeR/niri.git ~/Development/niri
 cd ~/Development/niri
+apt-get install -y gcc clang libudev-dev libgbm-dev libxkbcommon-dev libegl1-mesa-dev libwayland-dev libinput-dev libdbus-1-dev libsystemd-dev libseat-dev libpipewire-0.3-dev libpango1.0-dev libdisplay-info-dev
 cargo install cargo-deb
 cargo deb
 dpkg -i ~/Development/niri/target/debian/*.deb
+
+git clone https://github.com/Supreeeme/xwayland-satellite.git ~/Development/xwayland-satellite
+cd ~/Development/xwayland-satellite/
+apt install libxcb-cursor-dev
+cargo build --release -F systemd
+cp ~/systemd/user/xwayland-satellite.service /etc/systemd/user/
+systemctl --user enable --now xwayland-satellite
 
 echo "Done! Reboot and choose sway or niri."

@@ -3,6 +3,10 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
+environment {
+  DISPLAY ":1"
+}
+
 gestures {
   hot-corners {
     off

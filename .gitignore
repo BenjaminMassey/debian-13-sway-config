@@ -21,3 +21,6 @@ sway/monitors-setup
 !niri/config.kdl
 !waybar/
 !waybar/config.jsonc
+!systemd/
+!systemd/user/
+!systemd/user/xwayland-satellite.service
