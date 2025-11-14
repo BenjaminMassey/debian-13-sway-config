@@ -280,6 +280,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "/home/ben/Pictures/BACKGROUND.JPG" "-m" "fill"
 // Note: commented out, since waybar seems to be
 // starting on startup without this, and so this
 // makes two stacked instances occur on startup.
