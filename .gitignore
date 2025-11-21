@@ -15,10 +15,12 @@ sway/monitors-setup
 !nvim/lua/config/options.lua
 !nvim/lua/plugins/
 !nvim/lua/plugins/disabled.lua
+!nvim/lua/plugins/custom.lua
 !gtk-3.0/
 !gtk-3.0/settings.ini
 !niri/
 !niri/config.kdl
+!niri/newterm.sh
 !waybar/
 !waybar/config.jsonc
 !systemd/

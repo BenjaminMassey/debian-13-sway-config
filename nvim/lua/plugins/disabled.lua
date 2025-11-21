@@ -6,4 +6,8 @@ return {
       inlay_hints = { enabled = false },
     },
   },
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
 }

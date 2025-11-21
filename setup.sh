@@ -46,6 +46,7 @@ apt-get install -y gcc clang libudev-dev libgbm-dev libxkbcommon-dev libegl1-mes
 cargo install cargo-deb
 cargo deb
 dpkg -i ~/Development/niri/target/debian/*.deb
+echo "alias nt='~/.config/niri/newterm.sh'" >>~/.bashrc
 
 git clone https://github.com/Supreeeme/xwayland-satellite.git ~/Development/xwayland-satellite
 cd ~/Development/xwayland-satellite/
