@@ -28,3 +28,4 @@ sway/monitors-setup
 !systemd/
 !systemd/user/
 !systemd/user/xwayland-satellite.service
+!disable-ipv6.sh

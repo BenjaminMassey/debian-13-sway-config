@@ -56,7 +56,6 @@ cargo build --release -F systemd
 cp ~/systemd/user/xwayland-satellite.service /etc/systemd/user/
 systemctl --user enable --now xwayland-satellite
 
-bash -c 'echo -e "net.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1" >>/etc/sysctl.d/99-disable-ipv6.conf'
-sysctl -p /etc/sysctl.d/99-disable-ipv6.conf
+./disable-ipv6.sh
 
 echo "Done! Reboot and choose sway or niri."
