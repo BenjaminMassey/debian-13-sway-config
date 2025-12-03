@@ -22,6 +22,7 @@ sway/monitors-setup
 !niri/config.kdl
 !niri/newterm.sh
 !niri/displays.kdl.example
+!niri/minecraft-resize.sh
 !waybar/
 !waybar/config.jsonc
 !systemd/
