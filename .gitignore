@@ -21,6 +21,7 @@ sway/monitors-setup
 !niri/
 !niri/config.kdl
 !niri/newterm.sh
+!niri/displays.kdl.example
 !waybar/
 !waybar/config.jsonc
 !systemd/
