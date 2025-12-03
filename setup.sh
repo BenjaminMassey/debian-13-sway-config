@@ -47,6 +47,7 @@ cargo install cargo-deb
 cargo deb
 dpkg -i ~/Development/niri/target/debian/*.deb
 echo "alias nt='~/.config/niri/newterm.sh'" >>~/.bashrc
+touch ~/.config/niri/displays.kdl
 
 git clone https://github.com/Supreeeme/xwayland-satellite.git ~/Development/xwayland-satellite
 cd ~/Development/xwayland-satellite/
@@ -54,5 +55,7 @@ apt install libxcb-cursor-dev
 cargo build --release -F systemd
 cp ~/systemd/user/xwayland-satellite.service /etc/systemd/user/
 systemctl --user enable --now xwayland-satellite
+
+echo -e "net.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1" >>/etc/sysctl.d/99-disable-ipv6.conf
 
 echo "Done! Reboot and choose sway or niri."
