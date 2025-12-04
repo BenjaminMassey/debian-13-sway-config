@@ -3,13 +3,13 @@ FLOAT_RAW=$(niri msg focused-window | grep "Is floating")
 if [[ $FLOAT_RAW =~ (yes|no) ]]; then
   FLOATING=${BASH_REMATCH[1]}
   if [ "$FLOATING" = "no" ]; then
-    NIRI_DISPLAY=$(niri msg outputs | grep current)
+    NIRI_DISPLAY=$(niri msg outputs | grep current | head -n 1)
     DISPLAY_WIDTH=$(echo "$NIRI_DISPLAY" | awk -F'[x@]' '{print $1}' | grep -o '[0-9]*' | tail -1)
     DISPLAY_HEIGHT=$(echo "$NIRI_DISPLAY" | awk -F'[x@]' '{print $2}')
 
-    TARGET_WIDTH=300
-    TARGET_HEIGHT=12000
-    TARGET_X=$((($DISPLAY_WIDTH / 2) - $TARGET_WIDTH))
+    TARGET_WIDTH=384
+    TARGET_HEIGHT=16384
+    TARGET_X=$((($DISPLAY_WIDTH / 2) - ($TARGET_WIDTH / 2)))
     TARGET_Y=$((($DISPLAY_HEIGHT - $TARGET_HEIGHT) / 2))
 
     niri msg action move-window-to-floating
