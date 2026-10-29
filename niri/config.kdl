@@ -4,7 +4,7 @@
 // https://yalter.github.io/niri/Configuration:-Introduction
 
 environment {
-  DISPLAY ":1"
+  DISPLAY ":0"
 }
 
 gestures {
@@ -105,6 +105,7 @@ layout {
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.5
         proportion 0.333
+        proportion 0.25
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
@@ -114,7 +115,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 1.0; }
+    default-column-width { proportion 0.333; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -346,6 +347,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
 
     Mod+Shift+M { spawn-sh "~/.config/niri/minecraft-resize.sh"; }
+    Mod+B hotkey-overlay-title="Open a Browser: firefox" { spawn "firefox-esr"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -604,6 +606,10 @@ binds {
 
 window-rule {
     match app-id=r#"ninjabrainbot-Main"# title="Ninjabrain Bot "
+    open-floating true
+}
+window-rule {
+    match app-id=r#"miniquad-application"# title="Kart Stocks"
     open-floating true
 }
 

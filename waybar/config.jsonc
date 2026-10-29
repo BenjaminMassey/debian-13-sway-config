@@ -19,6 +19,7 @@
     ],
     "modules-right": [
         "pulseaudio",
+        "custom/gpu",
         "network",
         "backlight",
         "keyboard-state",
@@ -103,9 +104,9 @@
         "spacing": 10
     },
     "clock": {
+        "format": "{:%a %Y-%m-%d  %H:%M}",
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -159,11 +160,10 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-ethernet": "{ifname} ",
+        "tooltip-format": "{ifname} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -183,6 +183,12 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/gpu": {
+        "format": "{text}",
+        "return-type": "json",
+        "interval": 2,
+        "exec": "$HOME/.config/waybar/scripts/gpu.sh"
     },
     "custom/media": {
         "format": "{icon} {text}",
