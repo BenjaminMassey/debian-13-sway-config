@@ -25,6 +25,8 @@ sway/monitors-setup
 !niri/minecraft-resize.sh
 !polybar/
 !polybar/config.ini
+!polybar/gpu.sh
+!polybar/net.sh
 !waybar/
 !waybar/config.jsonc
 !systemd/
