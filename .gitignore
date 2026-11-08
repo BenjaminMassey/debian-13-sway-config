@@ -27,6 +27,7 @@ sway/monitors-setup
 !polybar/config.ini
 !polybar/gpu.sh
 !polybar/net.sh
+!polybar/batt.sh
 !waybar/
 !waybar/config.jsonc
 !systemd/
